@@ -4,14 +4,14 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Lumière — a premium SaaS dashboard for wedding photographers",
-  "homepage": "https://github.com/harshidhawan11/Lens-Love",
+  "homepage": "https://harshidhawan11.github.io/Lens-Love",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.3",
