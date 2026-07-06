@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Lumière — a premium SaaS dashboard for wedding photographers",
+  "homepage": "https://github.com/harshidhawan11/Lens-Love",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
