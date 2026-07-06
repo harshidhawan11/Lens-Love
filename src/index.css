@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-ink;
+  }
+
+  /* Focus ring — accessible, on-brand */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-blush-400/70 ring-offset-2 ring-offset-canvas;
+  }
+
+  ::selection {
+    background: #f3d5ce;
+    color: #2a2521;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-surface shadow-card;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lift;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+  }
+
+  .btn {
+    @apply relative inline-flex select-none items-center justify-center gap-2 overflow-hidden rounded-full text-sm font-medium transition-all duration-200 ease-out focus-visible:ring-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink px-5 py-2.5 text-canvas shadow-soft hover:shadow-lift hover:brightness-110 active:scale-[0.97];
+  }
+
+  .btn-blush {
+    @apply btn bg-blush-500 px-5 py-2.5 text-white shadow-soft hover:bg-blush-600 hover:shadow-glow active:scale-[0.97];
+  }
+
+  .btn-ghost {
+    @apply btn border border-line bg-surface px-5 py-2.5 text-ink-soft hover:border-blush-300 hover:text-ink hover:shadow-soft active:scale-[0.97];
+  }
+
+  .btn-soft {
+    @apply btn bg-blush-100 px-4 py-2 text-blush-700 hover:bg-blush-200 active:scale-[0.97];
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-faint;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-line bg-surface-2 px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-faint transition-colors focus:border-blush-300 focus:bg-surface;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden rounded-md bg-line-soft;
+  }
+  .skeleton::after {
+    content: "";
+    @apply absolute inset-0 -translate-x-full animate-shimmer;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.65),
+      transparent
+    );
+  }
+}
+
+/* Recharts polish */
+.recharts-default-tooltip {
+  border-radius: 14px !important;
+  border: 1px solid #ede6df !important;
+  box-shadow: 0 12px 30px -12px rgba(42, 37, 33, 0.18) !important;
+}
+.recharts-cartesian-axis-tick-value {
+  font-size: 11px;
+  fill: #8c837a;
+}
